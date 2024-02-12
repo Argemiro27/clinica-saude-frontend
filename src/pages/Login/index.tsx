@@ -15,7 +15,7 @@ function Login() {
     const [email, setEmail] = useState('');
 
     const [senha, setSenha] = useState('');
-    const [error, setError] = useState('');
+    const [error] = useState('');
 
     const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();

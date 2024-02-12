@@ -10,16 +10,14 @@ import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import WcIcon from '@mui/icons-material/Wc';
 import colors from '../../theme/colors';
-import axios from 'axios';
 import CargoService from '../../services/Cargo';
 import EmpresaService from '../../services/Empresa';
 import AuthService from '../../services/AuthService';
 import { ICargo } from '../../interfaces/Cargo';
 import { IEmpresa } from '../../interfaces/Empresa';
 import { toast } from 'react-toastify';
-
+import Diversity3Icon from '@mui/icons-material/Diversity3';
 function Register() {
     const [email, setEmail] = useState<string>('');
     const [nome, setNome] = useState<string>('');
@@ -190,7 +188,7 @@ function Register() {
                             label="Cargo"
                             startAdornment={
                                 <InputAdornment position="start">
-                                    <WcIcon />
+                                    <Diversity3Icon />
                                 </InputAdornment>
                             }
                         >
