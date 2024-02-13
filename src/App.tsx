@@ -28,6 +28,7 @@ import Usuarios from "./pages/Cadastros/Usuarios";
 import GradeHoraria from "./pages/Agendamentos/GradeHoraria";
 import { IAuthData } from "./interfaces/AuthData";
 import StorageAuthService from "./services/storage/Auth";
+import Pacientes from "./pages/Cadastros/Pacientes";
 
 
 const PrivateRoute: React.FC<RouteProps> = ({ element }) => {
@@ -53,7 +54,7 @@ const App: React.FC = () => {
     setIsAuthenticated(isLoggedIn());
   }, []);
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
     setIsAuthenticated(false);
   };
 
@@ -92,7 +93,7 @@ const App: React.FC = () => {
                       <div id="cadastros-collapse">
                         <ul className="p-3 links-collapse">
                           <li><Link to="/cadastros/cad-usuarios">USUÁRIOS</Link></li>
-                          <li><Link to="/cad-exercicios">PACIENTES</Link></li>
+                          <li><Link to="/cadastros/cad-pacientes">PACIENTES</Link></li>
                           <li><Link to="/action-1">FUNCIONÁRIOS</Link></li>
                         </ul>
                       </div>
@@ -164,6 +165,10 @@ const App: React.FC = () => {
                     <Route
                       path="/cadastros/cad-usuarios"
                       element={<PrivateRoute element={<Usuarios />} />}
+                    />
+                    <Route
+                      path="/cadastros/cad-pacientes"
+                      element={<PrivateRoute element={<Pacientes />} />}
                     />
                     <Route
                       path="/agendamentos"

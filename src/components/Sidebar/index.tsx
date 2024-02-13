@@ -27,8 +27,8 @@ const Sidebar = styled.div`
   }
 
   .collapse-sidebar {
-    background-color: #333333;
-    color: #b8b8b8;
+    background-color: ${colors.bgcolor};
+    color: ${colors.textColor};
     font-weight: bold;
     border-radius: 0 0 5px 5px;
     font-size: 12px;

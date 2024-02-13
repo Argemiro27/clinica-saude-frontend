@@ -5,15 +5,17 @@ import axios from "axios";
 interface AuthResponse {
   token: string;
 }
+const VITE_REACT_APP_API_URL = import.meta.env.VITE_REACT_APP_API_URL
+
+
 
 class AuthService {
-  static saveAuthToken(token: string): void {
-    localStorage.setItem("token", token);
-  }
+
+
 
   static async login(email: string, senha: string): Promise<AuthResponse> {
     console.log(email, senha);
-    const response = await fetch("http://localhost:5001/auth/login", {
+    const response = await fetch(`${VITE_REACT_APP_API_URL}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,10 +25,10 @@ class AuthService {
 
     if (response.ok) {
       const data = await response.json();
+
       // Salvar os dados no localStorage
       localStorage.setItem("userData", JSON.stringify(data));
-      const { token } = data;
-      this.saveAuthToken(token);
+
       return data;
     } else {
       const errorData = await response.json();
@@ -36,7 +38,7 @@ class AuthService {
 
   static async saveUsuario(userData: any): Promise<void> {
     try {
-      await axios.post("http://localhost:5001/auth/save-usuario", userData);
+      await axios.post(`${VITE_REACT_APP_API_URL}/auth/save-usuario`, userData);
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "Erro desconhecido";

@@ -6,7 +6,8 @@ const colors = {
     textBtn: '#a4e0bd',
     bgcolor: '#f1f1f1',
     navbg: '#dde0e0',
-    cardbg: '#dfdfdf',
+    cardbg: '#ffffff',
+    textColor: '#363636'
   };
   
   export default colors;
